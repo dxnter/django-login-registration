@@ -1,0 +1,10 @@
+.container {
+    margin-top: 50px !important;
+}
+ul {
+    margin-top: 30px !important;
+}
+.messages {
+    padding-left: 0px !important;
+    list-style-type: none;
+}

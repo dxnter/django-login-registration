@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Email Validation</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"> {% load static %}
+    <link rel="stylesheet" href="{% static 'register/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="card">
+                    <h4 class="card-header text-center">Register</h4>
+                    <div class="card-block">
+                        <form method="post" action="/register">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input name="first_name" type="text" class="form-control form-control-danger"> 
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "first_name" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="form-control-feedback">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input name="last_name" type="text" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "last_name" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="form-control-feedback">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" type="email" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "email" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="form-control-feedback">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "password" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="form-control-feedback">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input name="confirm_password" type="password" class="form-control">
+                                {% if messages %} 
+                                {%for message in messages %} 
+                                {%if "confirm_password" in message.tags %}
+                                <div class="form-group has-danger">
+                                    <div class="form-control-feedback">{{message}}</div>
+                                  </div>
+                                {%endif%} {%endfor%} {% endif %}
+                            </div>
+                            <div class="mx-auto text-center">
+                                <input type="submit" value="Create Account" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <h4 class="card-header text-center">Login</h4>
+                    <div class="card-block">
+                        <form method="post" action="/login">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="login_email" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="login_password" type="password" class="form-control">
+                            </div>
+                            <div class="mx-auto text-center">
+                                <input type="submit" value="Login" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </script>
+</body>
+
+</html>
